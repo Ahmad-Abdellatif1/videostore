@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ movie.MovieTitle }} · VideoStore{% endblock %}
+{% block content %}
+<h1>{{ movie.MovieTitle }}</h1>
+<ul>
+  <li><b>ID:</b> {{ movie.MovieID }}</li>
+  <li><b>Actors:</b> {{ movie.Actor1Name }}{% if movie.Actor2Name %}, {{ movie.Actor2Name }}{% endif %}</li>
+  <li><b>Director:</b> {{ movie.DirectorName }}</li>
+  <li><b>Genre:</b> {{ movie.get_MovieGenre_display }}</li>
+  <li><b>Release year:</b> {{ movie.ReleaseYear }}</li>
+</ul>
+<p>
+  <a href="{% url 'movie_update' movie.pk %}">Edit</a> ·
+  <a href="{% url 'movie_list' %}">Back</a>
+</p>
+{% endblock %}

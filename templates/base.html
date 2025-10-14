@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}VideoStore{% endblock %}</title>
+    <style>
+      body { font-family: system-ui, Arial, sans-serif; max-width: 880px; margin: 32px auto; }
+      nav a { margin-right: 12px; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #ddd; padding: 8px; }
+      th { text-align: left; }
+      form.inline { display: inline; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="{% url 'movie_list' %}">Movies</a>
+      <a href="{% url 'movie_create' %}">Add new</a>
+      <form method="get" action="{% url 'movie_list' %}" class="inline">
+        <input name="q" placeholder="Search title…" value="{{ q|default:'' }}">
+        <button type="submit">Search</button>
+      </form>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ mode }} Movie · VideoStore{% endblock %}
+{% block content %}
+<h1>{{ mode }} Movie</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">{{ mode }}</button>
+  <a href="{% url 'movie_list' %}">Cancel</a>
+</form>
+{% endblock %}
